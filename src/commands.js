@@ -8,6 +8,7 @@ import {
   dessertStatus
 } from "./controllers/dessert";
 import { happyHourAdd, happyHourNext } from "./controllers/happyhour";
+import { stagingStatus } from "./controllers/coding";
 
 const listensFor = "message_received,ambient";
 
@@ -33,10 +34,7 @@ export const commands = [
     targetController: dessertAdd
   },
   {
-    command: [
-      "^[Tt]atl[ıi] listele$",
-      "^[SŞsş]ekerim d[üu][sş]t[üu]$"
-    ],
+    command: ["^[Tt]atl[ıi] listele$", "^[SŞsş]ekerim d[üu][sş]t[üu]$"],
     listensFor,
     targetController: dessertList
   },
@@ -69,5 +67,10 @@ export const commands = [
     command: ["^[Pp]arti sıradaki", "^[Hh]appy[Hh]our sıradaki"],
     listensFor,
     targetController: happyHourNext
+  },
+  {
+    command: ["^[Ss]tag[iI]ng"],
+    listensFor,
+    targetController: stagingStatus
   }
 ];
